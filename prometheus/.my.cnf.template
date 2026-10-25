@@ -1,5 +1,0 @@
-[client]
-host     = db
-port     = 3306
-user     = wp_user
-password = PLACEHOLDER_REPLACED_BY_COMPOSE
