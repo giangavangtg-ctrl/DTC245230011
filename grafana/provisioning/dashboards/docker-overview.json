@@ -1,0 +1,296 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "description": "Giám sát container Docker qua Telegraf (Docker Engine API)",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "title": "Số container đang chạy",
+      "type": "stat",
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 0
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "expr": "count(docker_container_cpu_usage_percent{com_docker_compose_project=\"de3-wordpress\"})",
+          "legendFormat": "Containers",
+          "refId": "A"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "title": "CPU Usage theo Container (%)",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 15,
+            "pointSize": 5
+          }
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "expr": "docker_container_cpu_usage_percent{com_docker_compose_project=\"de3-wordpress\", container_name!=\"de3_docker_metrics\"}",
+          "legendFormat": "{{container_name}}",
+          "refId": "A"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "title": "Memory Usage theo Container",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 4
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "bytes",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 15
+          }
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "expr": "docker_container_mem_usage{com_docker_compose_project=\"de3-wordpress\", container_name!=\"de3_docker_metrics\"}",
+          "legendFormat": "{{container_name}}",
+          "refId": "A"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "title": "Network RX theo Container",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 12
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 10
+          }
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "expr": "rate(docker_container_net_rx_bytes{com_docker_compose_project=\"de3-wordpress\", container_name!=\"de3_docker_metrics\"}[1m])",
+          "legendFormat": "{{container_name}} RX",
+          "refId": "A"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "title": "Network TX theo Container",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 12
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "Bps",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth",
+            "fillOpacity": 10
+          }
+        },
+        "overrides": []
+      },
+      "targets": [
+        {
+          "expr": "rate(docker_container_net_tx_bytes{com_docker_compose_project=\"de3-wordpress\", container_name!=\"de3_docker_metrics\"}[1m])",
+          "legendFormat": "{{container_name}} TX",
+          "refId": "A"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "title": "Trạng thái container (uptime)",
+      "type": "table",
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 20
+      },
+      "datasource": {
+        "type": "prometheus",
+        "uid": "PBFA97CFB590B2093"
+      },
+      "targets": [
+        {
+          "expr": "docker_container_status_uptime_ns{com_docker_compose_project=\"de3-wordpress\"} / 1000000000",
+          "format": "table",
+          "instant": true,
+          "refId": "A"
+        }
+      ],
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "__name__": true,
+              "container_id": true,
+              "container_image": true,
+              "container_version": true,
+              "engine_host": true,
+              "server_version": true,
+              "cpu": true,
+              "com_docker_compose_project": true,
+              "com_docker_compose_service": true,
+              "instance": true,
+              "job": true,
+              "service": true
+            },
+            "renameByName": {
+              "container_name": "Container",
+              "container_status": "Trạng thái",
+              "Value": "Uptime (giây)"
+            }
+          }
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "options": {
+        "showHeader": true
+      },
+      "id": 6
+    },
+    {
+      "title": "Container Logs (Loki)",
+      "type": "logs",
+      "gridPos": {
+        "h": 10,
+        "w": 24,
+        "x": 0,
+        "y": 30
+      },
+      "datasource": {
+        "type": "loki",
+        "uid": "P8E80F9AEF21F6940"
+      },
+      "targets": [
+        {
+          "expr": "{compose_project=\"de3-wordpress\"}",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "showTime": true,
+        "showLabels": true,
+        "showCommonLabels": false,
+        "wrapLogMessage": true,
+        "prettifyLogMessage": false,
+        "enableLogDetails": true,
+        "sortOrder": "Descending"
+      },
+      "id": 7
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [
+    "docker",
+    "wordpress",
+    "monitoring"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Docker Containers Overview",
+  "uid": "de3-docker-overview",
+  "version": 1
+}

@@ -1,0 +1,44 @@
+# =============================================
+# Prometheus Configuration
+# Thu thập metrics từ Prometheus, Telegraf (container metrics),
+# mysqld-exporter và nginx-prometheus-exporter
+# =============================================
+
+global:
+  scrape_interval: 15s        # Thu thập mỗi 15 giây
+  evaluation_interval: 15s    # Đánh giá rules mỗi 15 giây
+  scrape_timeout: 10s
+
+scrape_configs:
+  # --- Prometheus tự giám sát chính nó ---
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
+        labels:
+          service: "prometheus"
+
+  # --- Telegraf Docker input: Metrics từng container (CPU, RAM, Network) ---
+  # cAdvisor không hoạt động đúng trên Docker Desktop (chỉ thấy cgroup gốc),
+  # nên Telegraf đọc Docker Engine API và expose metrics tại :9273.
+  - job_name: "docker"
+    static_configs:
+      - targets: ["docker-metrics:9273"]
+        labels:
+          service: "docker"
+    scrape_timeout: 10s
+
+  # --- mysqld-exporter: Metrics MySQL ---
+  - job_name: "mysql"
+    static_configs:
+      - targets: ["mysqld-exporter:9104"]
+        labels:
+          service: "mysql"
+    scrape_timeout: 10s
+
+  # --- nginx-prometheus-exporter: Metrics Nginx (stub_status) ---
+  - job_name: "nginx"
+    static_configs:
+      - targets: ["nginx-exporter:9113"]
+        labels:
+          service: "nginx"
+    scrape_timeout: 10s
