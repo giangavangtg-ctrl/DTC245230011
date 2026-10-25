@@ -1,0 +1,11 @@
+# Chuẩn hoá line ending để cấu hình Nginx/YAML/PHP chạy được trên cả Windows và Linux.
+* text=auto eol=lf
+
+# Tệp nhị phân không xử lý line ending.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
