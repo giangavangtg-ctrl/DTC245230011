@@ -272,6 +272,8 @@ WordPress Admin vẫn là nguồn quản trị chính. Sản phẩm là CPT riê
 
 ![Danh sách sản phẩm trong WP Admin](screenshots/wp-admin-products.png)
 
+> **Lưu ý về cột Ảnh:** các sản phẩm mẫu chưa gán **Featured Image**, nên cột Ảnh trong Admin hiển thị “Chưa có ảnh”. Ngoài frontend, theme dùng ảnh minh hoạ SVG cục bộ theo slug sản phẩm (xem mục 5.2). Có thể gán Featured Image trực tiếp trong Admin để thay thế ảnh fallback mà không cần sửa code.
+
 ![Sửa sản phẩm bằng Gutenberg](screenshots/wp-admin-product-edit.png)
 
 ### 6.2. WP-CLI
