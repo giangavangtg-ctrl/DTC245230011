@@ -1,0 +1,70 @@
+# =============================================
+# Promtail Configuration
+# Thu thập log container Docker qua Docker socket
+# Tương thích với Docker Desktop trên Windows
+# =============================================
+# CÁCH HOẠT ĐỘNG TRÊN WINDOWS / DOCKER DESKTOP:
+# - Docker Desktop trên Windows chạy container trong WSL2 VM.
+# - Docker socket được mount vào container Promtail tại /var/run/docker.sock.
+# - Promtail dùng docker_sd_configs để tự động phát hiện container
+#   và đọc log qua Docker API (không cần truy cập filesystem log trực tiếp).
+# - KHÔNG mount /var/lib/docker/containers vì đường dẫn này
+#   nằm trong WSL2 VM, không truy cập được từ Windows host.
+# =============================================
+
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+  log_level: warn
+
+positions:
+  filename: /tmp/positions.yaml
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+scrape_configs:
+  # --- Thu thập log từ tất cả container Docker ---
+  - job_name: docker
+    docker_sd_configs:
+      - host: unix:///var/run/docker.sock
+        refresh_interval: 5s
+        # Chỉ thu thập log từ container đang chạy
+        filters:
+          - name: status
+            values: ["running"]
+
+    relabel_configs:
+      # Gán nhãn container_name
+      - source_labels: ["__meta_docker_container_name"]
+        regex: "/(.*)"
+        target_label: "container"
+
+      # Gán nhãn service từ label com.docker.compose.service
+      - source_labels: ["__meta_docker_container_label_com_docker_compose_service"]
+        target_label: "service"
+
+      # Gán nhãn compose project
+      - source_labels: ["__meta_docker_container_label_com_docker_compose_project"]
+        target_label: "compose_project"
+
+      # Gán nhãn image
+      - source_labels: ["__meta_docker_container_image"]
+        target_label: "image"
+
+      # Loại bỏ container không thuộc project (tùy chọn)
+      # Bỏ comment để chỉ thu thập log từ project de3-wordpress
+      # - source_labels: ["compose_project"]
+      #   regex: "de3-wordpress"
+      #   action: keep
+
+    pipeline_stages:
+      # Phát hiện và parse JSON log (Docker mặc định ghi JSON)
+      - docker: {}
+
+      # Thêm timestamp từ log nếu có
+      - timestamp:
+          source: time
+          format: RFC3339Nano
+          fallback_formats:
+            - "2006-01-02T15:04:05Z07:00"
