@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img" aria-label="Danh mục laptop">
+	<defs>
+		<linearGradient id="lapBg" x1="40" y1="0" x2="680" y2="480" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#eaf3ff"/>
+			<stop offset="0.55" stop-color="#dbe9fb"/>
+			<stop offset="1" stop-color="#cfe4ff"/>
+		</linearGradient>
+		<linearGradient id="lapScreen" x1="250" y1="120" x2="470" y2="320" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#0b63f6"/>
+			<stop offset="0.55" stop-color="#0a8ef0"/>
+			<stop offset="1" stop-color="#00bfd8"/>
+		</linearGradient>
+		<linearGradient id="lapBody" x1="180" y1="330" x2="540" y2="380" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#dbe4ef"/>
+			<stop offset="0.5" stop-color="#f7fafd"/>
+			<stop offset="1" stop-color="#c9d5e4"/>
+		</linearGradient>
+	</defs>
+	<rect width="720" height="480" fill="url(#lapBg)"/>
+	<circle cx="612" cy="88" r="128" fill="#ffffff" opacity="0.5"/>
+	<circle cx="96" cy="404" r="104" fill="#ffffff" opacity="0.35"/>
+	<g opacity="0.5" fill="#9fbce4">
+		<circle cx="86" cy="92" r="3"/><circle cx="112" cy="92" r="3"/><circle cx="138" cy="92" r="3"/>
+		<circle cx="86" cy="118" r="3"/><circle cx="112" cy="118" r="3"/><circle cx="138" cy="118" r="3"/>
+	</g>
+	<ellipse cx="360" cy="392" rx="252" ry="26" fill="#9db8db" opacity="0.35"/>
+	<rect x="190" y="106" width="340" height="226" rx="18" fill="#152338" stroke="#2b3f5c" stroke-width="2"/>
+	<rect x="204" y="120" width="312" height="198" rx="8" fill="url(#lapScreen)"/>
+	<g opacity="0.92">
+		<rect x="222" y="138" width="70" height="10" rx="5" fill="#ffffff" opacity="0.85"/>
+		<rect x="222" y="160" width="42" height="6" rx="3" fill="#ffffff" opacity="0.45"/>
+		<rect x="222" y="186" width="92" height="54" rx="8" fill="#ffffff" opacity="0.18"/>
+		<rect x="326" y="186" width="76" height="54" rx="8" fill="#ffffff" opacity="0.12"/>
+		<rect x="414" y="186" width="82" height="54" rx="8" fill="#ffffff" opacity="0.2"/>
+		<path d="M222 292c24-18 34 2 56-8s30-26 52-22 26 18 46 12 32-30 54-26 26 16 46 10" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.8"/>
+		<rect x="222" y="252" width="274" height="4" rx="2" fill="#ffffff" opacity="0.16"/>
+	</g>
+	<path d="M150 332h420l30 34H120l30-34Z" fill="url(#lapBody)" stroke="#b8c7da" stroke-width="2"/>
+	<path d="M314 332h92l8 12h-108l8-12Z" fill="#aebdd1"/>
+	<rect x="120" y="362" width="480" height="8" rx="4" fill="#c6d3e4"/>
+	<g>
+		<rect x="574" y="236" width="66" height="94" rx="12" fill="#ffffff" stroke="#cbd9ea" stroke-width="2"/>
+		<circle cx="607" cy="252" r="5" fill="#0b63f6" opacity="0.5"/>
+		<rect x="586" y="268" width="42" height="6" rx="3" fill="#8fa9c9"/>
+		<rect x="586" y="282" width="30" height="6" rx="3" fill="#c3d2e4"/>
+		<rect x="586" y="300" width="42" height="16" rx="6" fill="#0b63f6" opacity="0.18"/>
+	</g>
+</svg>

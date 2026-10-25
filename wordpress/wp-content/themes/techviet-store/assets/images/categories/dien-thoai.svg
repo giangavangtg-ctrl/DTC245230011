@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 480" width="720" height="480" role="img" aria-label="Danh mục điện thoại">
+	<defs>
+		<linearGradient id="phoneBg" x1="20" y1="0" x2="700" y2="480" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#e6f7fa"/>
+			<stop offset="0.55" stop-color="#d9edfb"/>
+			<stop offset="1" stop-color="#cfe2ff"/>
+		</linearGradient>
+		<linearGradient id="phoneScreen" x1="290" y1="90" x2="440" y2="400" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#032f7a"/>
+			<stop offset="0.5" stop-color="#0b63f6"/>
+			<stop offset="1" stop-color="#00c8d7"/>
+		</linearGradient>
+		<linearGradient id="phoneFrame" x1="275" y1="60" x2="450" y2="430" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#f2f6fb"/>
+			<stop offset="0.5" stop-color="#b9c8db"/>
+			<stop offset="1" stop-color="#8398b3"/>
+		</linearGradient>
+	</defs>
+	<rect width="720" height="480" fill="url(#phoneBg)"/>
+	<circle cx="112" cy="96" r="118" fill="#ffffff" opacity="0.5"/>
+	<circle cx="626" cy="402" r="138" fill="#ffffff" opacity="0.4"/>
+	<ellipse cx="360" cy="428" rx="132" ry="20" fill="#8faecf" opacity="0.35"/>
+	<g transform="rotate(-8 360 250)">
+		<rect x="286" y="52" width="148" height="372" rx="30" fill="url(#phoneFrame)"/>
+		<rect x="294" y="60" width="132" height="356" rx="24" fill="#0b1424"/>
+		<rect x="302" y="68" width="116" height="340" rx="18" fill="url(#phoneScreen)"/>
+		<rect x="338" y="76" width="44" height="9" rx="4.5" fill="#0b1424"/>
+		<circle cx="384" cy="80" r="3" fill="#4be0ff"/>
+		<g opacity="0.95">
+			<rect x="316" y="104" width="54" height="9" rx="4.5" fill="#ffffff" opacity="0.9"/>
+			<rect x="316" y="120" width="34" height="5" rx="2.5" fill="#ffffff" opacity="0.45"/>
+			<rect x="316" y="146" width="88" height="60" rx="10" fill="#ffffff" opacity="0.16"/>
+			<rect x="326" y="158" width="34" height="36" rx="6" fill="#ffffff" opacity="0.45"/>
+			<circle cx="376" cy="176" r="17" fill="#ffffff" opacity="0.22"/>
+			<rect x="316" y="220" width="40" height="40" rx="11" fill="#ffffff" opacity="0.2"/>
+			<rect x="362" y="220" width="40" height="40" rx="11" fill="#ffffff" opacity="0.14"/>
+			<rect x="316" y="268" width="40" height="40" rx="11" fill="#ffffff" opacity="0.14"/>
+			<rect x="362" y="268" width="40" height="40" rx="11" fill="#ffffff" opacity="0.24"/>
+			<rect x="316" y="330" width="86" height="38" rx="19" fill="#ffffff" opacity="0.85"/>
+			<rect x="332" y="345" width="54" height="7" rx="3.5" fill="#0b63f6"/>
+		</g>
+		<rect x="286" y="112" width="5" height="30" rx="2.5" fill="#94a9c2"/>
+		<rect x="286" y="152" width="5" height="48" rx="2.5" fill="#94a9c2"/>
+	</g>
+	<g>
+		<rect x="500" y="150" width="92" height="66" rx="14" fill="#ffffff" stroke="#d3e0f0" stroke-width="2"/>
+		<circle cx="524" cy="176" r="11" fill="#0b63f6" opacity="0.16"/>
+		<path d="M519 176l4 4 7-8" fill="none" stroke="#0b63f6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+		<rect x="544" y="168" width="36" height="6" rx="3" fill="#a9bdd6"/>
+		<rect x="544" y="182" width="24" height="6" rx="3" fill="#ccd9e8"/>
+	</g>
+</svg>

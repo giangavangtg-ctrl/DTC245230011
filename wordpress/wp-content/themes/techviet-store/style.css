@@ -1,0 +1,20 @@
+/*
+Theme Name:        TechViet Store
+Theme URI:         https://localhost:8081
+Author:            TechViet DevOps
+Author URI:        https://localhost:8081
+Description:       Giao diện website quảng bá sản phẩm công nghệ TechViet Store — hiện đại, tối ưu chuyển đổi và tương thích thiết bị di động.
+Version:           1.0.0
+Requires at least: 6.4
+Tested up to:      6.7
+Requires PHP:      8.1
+License:           GPL-2.0-or-later
+License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       techviet
+Tags:              e-commerce, technology, custom-menu, featured-images, responsive-layout, translation-ready
+*/
+
+/*
+ * Toàn bộ giao diện nằm trong assets/css/main.css để dễ bảo trì.
+ * File này chỉ giữ theme header theo yêu cầu của WordPress.
+ */

@@ -1,0 +1,30 @@
+# ==========================
+# Bảo mật - không commit lên GitHub
+# ==========================
+.env
+
+# SSL certificates (chứa private key)
+nginx/ssl/*.pem
+nginx/ssl/*.key
+nginx/ssl/*.crt
+
+# Thư mục dữ liệu nếu mount local (không dùng named volumes)
+data/
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

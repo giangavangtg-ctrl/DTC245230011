@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" width="720" height="540" role="img" aria-label="Điện thoại TechViet Nova Ultra">
+	<defs>
+		<linearGradient id="ultBg" x1="0" y1="0" x2="720" y2="540" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#f6efff"/>
+			<stop offset="0.5" stop-color="#eee2ff"/>
+			<stop offset="1" stop-color="#e2d4fb"/>
+		</linearGradient>
+		<linearGradient id="ultBody" x1="260" y1="60" x2="460" y2="500" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#241046"/>
+			<stop offset="0.35" stop-color="#4c1d95"/>
+			<stop offset="0.7" stop-color="#7c3aed"/>
+			<stop offset="1" stop-color="#c084fc"/>
+		</linearGradient>
+		<linearGradient id="ultGold" x1="250" y1="40" x2="470" y2="500" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#f6e3b4"/>
+			<stop offset="0.4" stop-color="#d4af68"/>
+			<stop offset="0.7" stop-color="#b8904a"/>
+			<stop offset="1" stop-color="#f0d99a"/>
+		</linearGradient>
+		<linearGradient id="ultGlass" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#ffffff" stop-opacity="0.3"/>
+			<stop offset="0.55" stop-color="#ffffff" stop-opacity="0.03"/>
+			<stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+		</linearGradient>
+		<filter id="ultShadow" x="-30%" y="-30%" width="160%" height="160%">
+			<feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#3b1c68" flood-opacity="0.28"/>
+		</filter>
+	</defs>
+	<rect width="720" height="540" fill="url(#ultBg)"/>
+	<circle cx="118" cy="104" r="118" fill="#ffffff" opacity="0.5"/>
+	<circle cx="618" cy="446" r="148" fill="#ffffff" opacity="0.4"/>
+	<circle cx="618" cy="446" r="84" fill="none" stroke="#c9a7f5" stroke-width="2" stroke-dasharray="4 10" opacity="0.7"/>
+	<ellipse cx="360" cy="506" rx="152" ry="18" fill="#7d5aa8" opacity="0.28"/>
+
+	<g transform="rotate(7 360 270)" filter="url(#ultShadow)">
+		<rect x="248" y="40" width="224" height="460" rx="40" fill="url(#ultGold)"/>
+		<rect x="255" y="47" width="210" height="446" rx="34" fill="url(#ultBody)"/>
+		<rect x="255" y="47" width="210" height="446" rx="34" fill="url(#ultGlass)"/>
+		<path d="M286 68h62c-34 96-42 190-32 316-24-104-34-210-30-316Z" fill="#ffffff" opacity="0.06"/>
+
+		<rect x="272" y="74" width="120" height="132" rx="28" fill="#160826" opacity="0.5" stroke="#e4c583" stroke-opacity="0.5" stroke-width="2"/>
+		<g>
+			<circle cx="302" cy="106" r="19" fill="#0a0612" stroke="#d4af68" stroke-width="3.5"/>
+			<circle cx="302" cy="106" r="8" fill="#b17cff"/>
+			<circle cx="356" cy="106" r="19" fill="#0a0612" stroke="#d4af68" stroke-width="3.5"/>
+			<circle cx="356" cy="106" r="8" fill="#b17cff"/>
+			<circle cx="302" cy="158" r="19" fill="#0a0612" stroke="#d4af68" stroke-width="3.5"/>
+			<circle cx="302" cy="158" r="8" fill="#e0c6ff"/>
+			<circle cx="356" cy="158" r="14" fill="#0a0612" stroke="#d4af68" stroke-width="3"/>
+			<rect x="348" y="150" width="16" height="16" rx="5" fill="#fff1c9" opacity="0.8"/>
+		</g>
+
+		<text x="360" y="462" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#f0d99a" opacity="0.8" letter-spacing="4">TECHVIET</text>
+		<rect x="468" y="118" width="5" height="44" rx="2.5" fill="#c9a55f"/>
+		<rect x="468" y="172" width="5" height="66" rx="2.5" fill="#c9a55f"/>
+	</g>
+
+	<g>
+		<rect x="76" y="356" width="148" height="72" rx="16" fill="#ffffff" opacity="0.95"/>
+		<circle cx="106" cy="392" r="16" fill="#f4ecff"/>
+		<path d="M106 382l3.2 6.6 7.2 1-5.2 5 1.2 7.2-6.4-3.4-6.4 3.4 1.2-7.2-5.2-5 7.2-1L106 382Z" fill="#7c3aed"/>
+		<text x="132" y="386" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#0b1424">Camera 108MP</text>
+		<text x="132" y="406" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#5b6b82">Chụp đêm thông minh</text>
+	</g>
+</svg>

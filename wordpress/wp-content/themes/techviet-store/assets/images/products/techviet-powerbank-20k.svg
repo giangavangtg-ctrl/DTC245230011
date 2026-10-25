@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" width="720" height="540" role="img" aria-label="Pin sạc dự phòng TechViet PowerBank 20.000mAh">
+	<defs>
+		<linearGradient id="pbBg" x1="0" y1="0" x2="720" y2="540" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#fff4e8"/>
+			<stop offset="0.5" stop-color="#ffeede"/>
+			<stop offset="1" stop-color="#ffe1c7"/>
+		</linearGradient>
+		<linearGradient id="pbBody" x1="240" y1="100" x2="480" y2="480" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#263c58"/>
+			<stop offset="0.5" stop-color="#0e1d31"/>
+			<stop offset="1" stop-color="#1d3350"/>
+		</linearGradient>
+		<linearGradient id="pbAccent" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#ff9a3c"/>
+			<stop offset="1" stop-color="#ff6a1a"/>
+		</linearGradient>
+		<filter id="pbShadow" x="-30%" y="-30%" width="160%" height="160%">
+			<feDropShadow dx="0" dy="20" stdDeviation="20" flood-color="#7a4212" flood-opacity="0.24"/>
+		</filter>
+	</defs>
+	<rect width="720" height="540" fill="url(#pbBg)"/>
+	<circle cx="614" cy="96" r="130" fill="#ffffff" opacity="0.5"/>
+	<circle cx="92" cy="452" r="112" fill="#ffffff" opacity="0.36"/>
+	<ellipse cx="360" cy="492" rx="168" ry="22" fill="#ad7a4c" opacity="0.28"/>
+
+	<g filter="url(#pbShadow)">
+		<path d="M482 190c90 6 128 52 128 112s-42 100-132 106" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+		<path d="M482 190c90 6 128 52 128 112s-42 100-132 106" fill="none" stroke="#e6d3bf" stroke-width="2" stroke-dasharray="4 10" opacity="0.6"/>
+		<rect x="238" y="104" width="248" height="368" rx="34" fill="url(#pbBody)" stroke="#35516f" stroke-width="2"/>
+		<rect x="252" y="118" width="220" height="340" rx="26" fill="#0a1626" opacity="0.55"/>
+		<path d="M266 132h48c-20 80-24 170-16 292-16-94-22-198-20-292Z" fill="#ffffff" opacity="0.06"/>
+
+		<rect x="282" y="142" width="160" height="64" rx="16" fill="url(#pbAccent)"/>
+		<text x="362" y="172" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="21" font-weight="800" fill="#ffffff">20.000</text>
+		<text x="362" y="192" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="700" fill="#ffffff" opacity="0.85" letter-spacing="2">mAh</text>
+
+		<g>
+			<rect x="292" y="240" width="30" height="12" rx="6" fill="#35e6a1"/>
+			<rect x="330" y="240" width="30" height="12" rx="6" fill="#35e6a1"/>
+			<rect x="368" y="240" width="30" height="12" rx="6" fill="#35e6a1"/>
+			<rect x="406" y="240" width="30" height="12" rx="6" fill="#ffffff" opacity="0.18"/>
+			<text x="292" y="278" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#9fb6cf" letter-spacing="1">75% · SẠC NHANH 22.5W</text>
+		</g>
+
+		<rect x="286" y="306" width="152" height="96" rx="14" fill="#132a44" stroke="#2c4a6c" stroke-width="1.5"/>
+		<g fill="#8fa7c2">
+			<rect x="300" y="322" width="56" height="7" rx="3.5"/>
+			<rect x="300" y="338" width="36" height="5" rx="2.5" opacity="0.6"/>
+		</g>
+		<rect x="300" y="358" width="34" height="28" rx="7" fill="#0a1626" stroke="#3d5c7d" stroke-width="1.5"/>
+		<rect x="342" y="358" width="34" height="28" rx="7" fill="#0a1626" stroke="#3d5c7d" stroke-width="1.5"/>
+		<rect x="384" y="358" width="34" height="28" rx="7" fill="#0a1626" stroke="#3d5c7d" stroke-width="1.5"/>
+		<rect x="304" y="366" width="26" height="8" rx="4" fill="#35e6a1" opacity="0.7"/>
+
+		<rect x="286" y="424" width="60" height="8" rx="4" fill="#ffffff" opacity="0.18"/>
+	</g>
+
+	<g>
+		<rect x="74" y="316" width="150" height="76" rx="16" fill="#ffffff" opacity="0.95"/>
+		<circle cx="104" cy="354" r="16" fill="#fff2e6"/>
+		<path d="M108 340l-9 15h7l-2 11 12-16h-7l1-10Z" fill="#ff7a1a"/>
+		<text x="130" y="348" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#0b1424">Sạc 3 thiết bị</text>
+		<text x="130" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#5b6b82">USB-C PD · 22.5W</text>
+	</g>
+</svg>

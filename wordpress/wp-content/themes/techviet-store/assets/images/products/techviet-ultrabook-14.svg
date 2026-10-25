@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" width="720" height="540" role="img" aria-label="Laptop TechViet UltraBook 14">
+	<defs>
+		<linearGradient id="ubBg" x1="0" y1="0" x2="720" y2="540" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#eef6ff"/>
+			<stop offset="0.55" stop-color="#e2eefc"/>
+			<stop offset="1" stop-color="#d4e6fa"/>
+		</linearGradient>
+		<linearGradient id="ubDisplay" x1="220" y1="120" x2="500" y2="330" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#06327f"/>
+			<stop offset="0.5" stop-color="#0b63f6"/>
+			<stop offset="1" stop-color="#00c8d8"/>
+		</linearGradient>
+		<linearGradient id="ubBase" x1="120" y1="350" x2="600" y2="400" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#c9d6e5"/>
+			<stop offset="0.45" stop-color="#fbfdff"/>
+			<stop offset="1" stop-color="#b9c9dc"/>
+		</linearGradient>
+		<filter id="ubShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#123a6b" flood-opacity="0.16"/>
+		</filter>
+	</defs>
+	<rect width="720" height="540" fill="url(#ubBg)"/>
+	<circle cx="612" cy="84" r="140" fill="#ffffff" opacity="0.5"/>
+	<circle cx="92" cy="468" r="108" fill="#ffffff" opacity="0.35"/>
+	<circle cx="360" cy="266" r="230" fill="none" stroke="#ffffff" stroke-width="26" opacity="0.32"/>
+	<ellipse cx="360" cy="444" rx="244" ry="24" fill="#8ca9ca" opacity="0.3"/>
+
+	<g filter="url(#ubShadow)">
+		<rect x="186" y="94" width="348" height="238" rx="16" fill="#dbe4ef" stroke="#b9c8da" stroke-width="2"/>
+		<rect x="198" y="106" width="324" height="208" rx="7" fill="#0c1a2c"/>
+		<rect x="206" y="114" width="308" height="192" rx="4" fill="url(#ubDisplay)"/>
+		<g opacity="0.95">
+			<rect x="222" y="130" width="58" height="8" rx="4" fill="#ffffff" opacity="0.85"/>
+			<rect x="222" y="148" width="36" height="5" rx="2.5" fill="#ffffff" opacity="0.4"/>
+			<rect x="222" y="170" width="116" height="52" rx="8" fill="#ffffff" opacity="0.16"/>
+			<rect x="348" y="170" width="70" height="52" rx="8" fill="#ffffff" opacity="0.1"/>
+			<rect x="428" y="170" width="72" height="52" rx="8" fill="#ffffff" opacity="0.2"/>
+			<path d="M222 274c20-16 34 0 52-10s24-22 44-16 22 16 42 10 26-24 44-18 22 12 38 6" fill="none" stroke="#7ff0ff" stroke-width="3.5" stroke-linecap="round"/>
+			<rect x="222" y="234" width="278" height="4" rx="2" fill="#ffffff" opacity="0.14"/>
+			<rect x="222" y="288" width="278" height="3" rx="1.5" fill="#ffffff" opacity="0.1"/>
+		</g>
+		<rect x="342" y="324" width="36" height="5" rx="2.5" fill="#aebdd0"/>
+		<path d="M144 332h432l34 38a8 8 0 0 1-6 13H116a8 8 0 0 1-6-13l34-38Z" fill="url(#ubBase)" stroke="#b6c6d9" stroke-width="2"/>
+		<path d="M318 332h84l9 13h-102l9-13Z" fill="#a6b8cc"/>
+		<rect x="116" y="374" width="488" height="9" rx="4.5" fill="#c3d2e3"/>
+		<g opacity="0.6" stroke="#93a8c2" stroke-width="1">
+			<path d="M176 386h368"/>
+			<path d="M196 392h328"/>
+		</g>
+	</g>
+</svg>

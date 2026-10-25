@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" width="720" height="540" role="img" aria-label="Laptop gaming TechViet Gaming Pro 16">
+	<defs>
+		<linearGradient id="gpBg" x1="0" y1="0" x2="720" y2="540" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#060b18"/>
+			<stop offset="0.55" stop-color="#0b1730"/>
+			<stop offset="1" stop-color="#131c3a"/>
+		</linearGradient>
+		<linearGradient id="gpScreen" x1="210" y1="120" x2="510" y2="330" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#2a0d5e"/>
+			<stop offset="0.45" stop-color="#7b1fd4"/>
+			<stop offset="0.75" stop-color="#b21f8f"/>
+			<stop offset="1" stop-color="#ff5d2e"/>
+		</linearGradient>
+		<linearGradient id="gpRgb" x1="120" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#00e0ff"/>
+			<stop offset="0.35" stop-color="#0b63f6"/>
+			<stop offset="0.7" stop-color="#b020ff"/>
+			<stop offset="1" stop-color="#ff2d78"/>
+		</linearGradient>
+		<radialGradient id="gpGlowA" cx="0" cy="0" r="1" gradientTransform="translate(600 120) rotate(130) scale(280)">
+			<stop offset="0" stop-color="#7b1fd4" stop-opacity="0.45"/>
+			<stop offset="1" stop-color="#7b1fd4" stop-opacity="0"/>
+		</radialGradient>
+		<radialGradient id="gpGlowB" cx="0" cy="0" r="1" gradientTransform="translate(120 460) rotate(-30) scale(260)">
+			<stop offset="0" stop-color="#00c8d8" stop-opacity="0.32"/>
+			<stop offset="1" stop-color="#00c8d8" stop-opacity="0"/>
+		</radialGradient>
+		<filter id="gpShadow" x="-25%" y="-25%" width="150%" height="150%">
+			<feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#000000" flood-opacity="0.55"/>
+		</filter>
+	</defs>
+	<rect width="720" height="540" fill="url(#gpBg)"/>
+	<rect width="720" height="540" fill="url(#gpGlowA)"/>
+	<rect width="720" height="540" fill="url(#gpGlowB)"/>
+	<g stroke="#ffffff" stroke-width="1" opacity="0.05">
+		<path d="M0 90h720M0 180h720M0 270h720M0 360h720M0 450h720"/>
+		<path d="M120 0v540M240 0v540M360 0v540M480 0v540M600 0v540"/>
+	</g>
+
+	<ellipse cx="360" cy="450" rx="250" ry="26" fill="#000000" opacity="0.5"/>
+	<ellipse cx="360" cy="440" rx="190" ry="14" fill="url(#gpRgb)" opacity="0.5"/>
+
+	<g filter="url(#gpShadow)">
+		<rect x="180" y="92" width="360" height="240" rx="14" fill="#111a2c" stroke="#2b3954" stroke-width="2"/>
+		<rect x="192" y="104" width="336" height="212" rx="5" fill="#05070d"/>
+		<rect x="200" y="112" width="320" height="196" rx="3" fill="url(#gpScreen)"/>
+		<g opacity="0.9">
+			<path d="M226 292l40-54 34 30 46-72 40 52 40-34 34 58" fill="none" stroke="#ffffff" stroke-width="3" opacity="0.75"/>
+			<path d="M226 292l40-54 34 30 46-72 40 52 40-34 34 58v20H226v-20Z" fill="#ffffff" opacity="0.08"/>
+			<rect x="218" y="126" width="72" height="8" rx="4" fill="#ffffff" opacity="0.85"/>
+			<rect x="218" y="142" width="40" height="5" rx="2.5" fill="#ffffff" opacity="0.45"/>
+			<rect x="406" y="126" width="92" height="8" rx="4" fill="#ffffff" opacity="0.3"/>
+			<g fill="#00e0ff" opacity="0.9">
+				<rect x="408" y="248" width="10" height="24" rx="3"/>
+				<rect x="424" y="236" width="10" height="36" rx="3"/>
+				<rect x="440" y="254" width="10" height="18" rx="3"/>
+			</g>
+			<circle cx="470" cy="254" r="16" fill="none" stroke="#7ff0ff" stroke-width="3" opacity="0.8"/>
+			<path d="M470 238a16 16 0 0 1 16 16h-16v-16Z" fill="#7ff0ff" opacity="0.6"/>
+			<rect x="218" y="270" width="98" height="6" rx="3" fill="#ffffff" opacity="0.18"/>
+		</g>
+		<circle cx="360" cy="99" r="3" fill="#00e0ff"/>
+		<path d="M144 332h432l30 40a8 8 0 0 1-6 12H120a8 8 0 0 1-6-12l30-40Z" fill="#16203a" stroke="#2c3b58" stroke-width="2"/>
+		<path d="M144 332h432l6 8H138l6-8Z" fill="url(#gpRgb)" opacity="0.95"/>
+		<path d="M312 332h96l8 13h-112l8-13Z" fill="#0a101d"/>
+		<rect x="120" y="384" width="480" height="7" rx="3.5" fill="url(#gpRgb)" opacity="0.9"/>
+		<g fill="#3a4b6b" opacity="0.8">
+			<rect x="160" y="360" width="40" height="4" rx="2"/><rect x="210" y="360" width="40" height="4" rx="2"/>
+			<rect x="470" y="360" width="40" height="4" rx="2"/><rect x="520" y="360" width="40" height="4" rx="2"/>
+		</g>
+	</g>
+	<g fill="#00e0ff">
+		<circle cx="160" cy="124" r="3" opacity="0.8"/>
+		<circle cx="566" cy="396" r="3" opacity="0.7"/>
+		<circle cx="612" cy="88" r="2" opacity="0.6"/>
+	</g>
+<rect x="0" y="0" width="720" height="540" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="2"/>
+</svg>

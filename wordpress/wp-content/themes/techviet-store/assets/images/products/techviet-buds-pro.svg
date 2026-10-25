@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 540" width="720" height="540" role="img" aria-label="Tai nghe không dây TechViet Buds Pro">
+	<defs>
+		<linearGradient id="budsBg" x1="0" y1="0" x2="720" y2="540" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#eef8ff"/>
+			<stop offset="0.5" stop-color="#e4f6f4"/>
+			<stop offset="1" stop-color="#d9f0ff"/>
+		</linearGradient>
+		<linearGradient id="budsCase" x1="260" y1="80" x2="470" y2="440" gradientUnits="userSpaceOnUse">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="0.55" stop-color="#eef5fb"/>
+			<stop offset="1" stop-color="#d3e2ef"/>
+		</linearGradient>
+		<linearGradient id="budsCavity" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#b8cddd"/>
+			<stop offset="1" stop-color="#dce9f4"/>
+		</linearGradient>
+		<linearGradient id="budsTip" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#ffffff"/>
+			<stop offset="1" stop-color="#dfe9f2"/>
+		</linearGradient>
+		<filter id="budsShadow" x="-30%" y="-30%" width="160%" height="160%">
+			<feDropShadow dx="0" dy="20" stdDeviation="20" flood-color="#153a4d" flood-opacity="0.2"/>
+		</filter>
+	</defs>
+	<rect width="720" height="540" fill="url(#budsBg)"/>
+	<circle cx="104" cy="106" r="112" fill="#ffffff" opacity="0.5"/>
+	<circle cx="620" cy="440" r="142" fill="#ffffff" opacity="0.42"/>
+	<circle cx="360" cy="270" r="210" fill="none" stroke="#ffffff" stroke-width="24" opacity="0.3"/>
+	<ellipse cx="360" cy="468" rx="180" ry="22" fill="#7ea3b8" opacity="0.28"/>
+
+	<g filter="url(#budsShadow)">
+		<rect x="270" y="88" width="180" height="180" rx="58" fill="#e3edf6" stroke="#c5d8e7" stroke-width="2" transform="rotate(-8 360 178)"/>
+		<path d="M284 164h152" stroke="#ffffff" stroke-width="3" opacity="0.7"/>
+		<g transform="rotate(6 360 260)">
+			<rect x="244" y="222" width="232" height="212" rx="58" fill="url(#budsCase)" stroke="#c3d6e6" stroke-width="2"/>
+			<rect x="268" y="238" width="184" height="76" rx="34" fill="url(#budsCavity)"/>
+			<g>
+				<ellipse cx="316" cy="276" rx="26" ry="20" fill="#203748" opacity="0.85"/>
+				<ellipse cx="404" cy="276" rx="26" ry="20" fill="#203748" opacity="0.85"/>
+			</g>
+			<circle cx="360" cy="358" r="5" fill="#35e6a1"/>
+			<rect x="330" y="386" width="60" height="8" rx="4" fill="#c7d9e8"/>
+		</g>
+		<g transform="rotate(-4 480 260)">
+			<circle cx="512" cy="226" r="34" fill="url(#budsTip)" stroke="#c9dbea" stroke-width="2"/>
+			<circle cx="516" cy="234" r="16" fill="#c6d7e5"/>
+			<path d="M502 252c-2 26-6 48-10 64" fill="none" stroke="#eef5fb" stroke-width="6" stroke-linecap="round"/>
+			<rect x="484" y="286" width="22" height="66" rx="11" fill="url(#budsTip)" stroke="#c9dbea" stroke-width="2"/>
+			<circle cx="495" cy="346" r="5" fill="#b9ccdc"/>
+		</g>
+	</g>
+
+	<g>
+		<rect x="74" y="350" width="158" height="76" rx="18" fill="#ffffff" opacity="0.95"/>
+		<circle cx="106" cy="388" r="16" fill="#e6faf5"/>
+		<path d="M98 388h16M106 380v16" stroke="#0f9e8a" stroke-width="3" stroke-linecap="round"/>
+		<text x="132" y="382" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#0b1424">Chống ồn ANC</text>
+		<text x="132" y="402" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#5b6b82">Pin 30 giờ</text>
+	</g>
+</svg>
