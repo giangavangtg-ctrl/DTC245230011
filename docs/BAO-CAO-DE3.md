@@ -2,7 +2,7 @@
 
 **Tên website:** TechViet Store  
 **Môn học:** Triển khai và Quản trị Hệ thống Phần mềm  
-**Sinh viên thực hiện:** Vang Giang — MSSV DTC245230011  
+**Sinh viên thực hiện:** Giàng A Vàng — MSSV DTC245230011  
 **Ngày hoàn thiện:** 26/10/2026  
 **Môi trường triển khai:** Docker Desktop trên Windows 11 (WSL2), truy cập qua Nginx tại `http://localhost:8081`  
 **Repository:** https://github.com/giangavangtg-ctrl/DTC245230011

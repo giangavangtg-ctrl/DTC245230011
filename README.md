@@ -21,6 +21,8 @@ TechViet Store là website quảng bá sản phẩm công nghệ (laptop, điệ
 - Các biện pháp hardening: cổng quản trị chỉ bind loopback, mạng tách biệt, tài khoản MySQL least-privilege, security headers, HTTPS self-signed.
 
 > Ảnh minh chứng trong thư mục [`docs/screenshots`](docs/screenshots) được chụp từ hệ thống đang chạy thực tế, không qua chỉnh sửa nội dung.
+>
+> **Báo cáo triển khai:** [`docs/Bao_Cao_Trien_Khai_He_Thong.pdf`](docs/Bao_Cao_Trien_Khai_He_Thong.pdf) (bản Word: [`docs/Bao_Cao_Trien_Khai_He_Thong.docx`](docs/Bao_Cao_Trien_Khai_He_Thong.docx)).
 
 ---
 
