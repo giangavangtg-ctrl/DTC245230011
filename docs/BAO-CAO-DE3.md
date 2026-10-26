@@ -2,9 +2,10 @@
 
 **Tên website:** TechViet Store  
 **Môn học:** Triển khai và Quản trị Hệ thống Phần mềm  
-**Sinh viên thực hiện:** ______________________  
+**Sinh viên thực hiện:** Vang Giang — MSSV DTC245230011  
 **Ngày hoàn thiện:** 26/10/2026  
-**Môi trường triển khai:** Docker Desktop trên Windows 11 (WSL2), truy cập qua Nginx tại `http://localhost:8081`
+**Môi trường triển khai:** Docker Desktop trên Windows 11 (WSL2), truy cập qua Nginx tại `http://localhost:8081`  
+**Repository:** https://github.com/giangavangtg-ctrl/DTC245230011
 
 ---
 
@@ -76,7 +77,7 @@ Bảng dưới đây đối chiếu yêu cầu của đề với cách hiện th
 | Chỉnh sửa bằng WordPress Admin | Gutenberg + meta box + CPT UI | Ảnh `wp-admin-product-edit.png` |
 | Trang chủ tĩnh | `show_on_front=page`, `page_on_front=6` | WP-CLI kiểm tra |
 | Menu/nút hoạt động | Menu 7 mục, link tương đối, route đúng | Kiểm tra HTTP status các URL |
-| Docker Compose đầy đủ | 12 service (11 thường trực + wpcli), 5 volume, 3 network | `docker compose ps` |
+| Docker Compose đầy đủ | 12 service (11 thường trực + wpcli), 6 volume, 3 network | `docker compose ps` |
 | Nginx reverse proxy + headers + HTTPS | `default.conf` cấu hình HTTP/HTTPS | `nginx -t`, `curl -I` |
 | Prometheus + exporter | 4 job: prometheus, docker, mysql, nginx | Ảnh `prometheus-targets.png` |
 | Grafana dashboard dữ liệu thật | 3 dashboard provision + 2 datasource | Ảnh `grafana-docker.png`, `grafana-nginx.png` |
@@ -134,6 +135,7 @@ Ghi chú: `backend` để `internal: false` vì Docker Desktop trên Windows kh�
 | `prometheus_data` | TSDB metrics (retention 15 ngày) |
 | `grafana_data` | Dashboard, user, cấu hình Grafana |
 | `loki_data` | Log đã thu thập |
+| `promtail_positions` | Vị trí đọc log của Promtail (giữ qua restart) |
 
 Named volume giúp dữ liệu tồn tại qua `docker compose down` và `up` lại. Chỉ `down -v` mới xoá dữ liệu; tài liệu cảnh báo rõ.
 
@@ -156,7 +158,7 @@ Named volume giúp dữ liệu tồn tại qua `docker compose down` và `up` l�
 |---|---|---|---|---|
 | `db` | mysql:8.0.40 | — | `mysqladmin ping` | Chỉ backend |
 | `wordpress` | wordpress:6.7.2-apache | — | Kiểm tra HTML + lỗi DB | Chỉ backend + frontend |
-| `phpmyadmin` | phpmyadmin:5.2.1-apache | `127.0.0.1:8080` | HTTP | Quản trị DB |
+| `phpmyadmin` | phpmyadmin:5.2.2-apache | `127.0.0.1:8080` | HTTP | Quản trị DB |
 | `nginx` | nginx:1.27-alpine | `127.0.0.1:8081`, `127.0.0.1:8443` | `/nginx-health` | Reverse proxy |
 | `prometheus` | prom/prometheus:v2.54.1 | `127.0.0.1:9090` | `/-/healthy` | Metrics |
 | `grafana` | grafana/grafana:11.2.2 | `127.0.0.1:3000` | `/api/health` | Dashboard |
@@ -188,7 +190,7 @@ de3_mysql             mysql:8.0.40                            Up (healthy)
 de3_mysqld_exporter   prom/mysqld-exporter:v0.14.0            Up (healthy)
 de3_nginx             nginx:1.27-alpine                       Up (healthy)
 de3_nginx_exporter    nginx/nginx-prometheus-exporter:1.3.0   Up
-de3_phpmyadmin        phpmyadmin:5.2.1-apache                 Up (healthy)
+de3_phpmyadmin        phpmyadmin:5.2.2-apache                 Up (healthy)
 de3_prometheus        prom/prometheus:v2.54.1                 Up (healthy)
 de3_promtail          grafana/promtail:3.2.0                  Up (healthy)
 de3_wordpress         wordpress:6.7.2-apache                  Up (healthy)
@@ -371,7 +373,7 @@ Dashboard hiển thị dữ liệu thật: 11 container, CPU/RAM/network biến 
 - Promtail dùng `docker_sd_configs` để tự phát hiện container đang chạy.
 - Log được gắn nhãn `compose_project`, `container`, `service`, `service_name`, `image`.
 - Promtail đẩy log về `http://loki:3100/loki/api/v1/push`.
-- Loki lưu log trong volume `loki_data`; Grafana truy vấn qua datasource Loki.
+- Loki lưu log trong volume `loki_data`; Promtail lưu vị trí đọc trong volume `promtail_positions` để không gửi lại log cũ sau restart; Grafana truy vấn qua datasource Loki.
 
 ### 8.2. Nhãn đã kiểm chứng
 

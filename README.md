@@ -3,7 +3,8 @@
 > **Môn học:** Triển khai và Quản trị Hệ thống Phần mềm  
 > **Đề tài:** Website quảng bá sản phẩm công nghệ — TechViet Store  
 > **Môi trường:** Docker Desktop trên Windows 11 (WSL2), truy cập qua `http://localhost:8081`  
-> **Công nghệ:** WordPress · MySQL · Nginx · Prometheus · Grafana · Loki · Promtail · Telegraf · Docker Compose
+> **Công nghệ:** WordPress · MySQL · Nginx · Prometheus · Grafana · Loki · Promtail · Telegraf · Docker Compose  
+> **Repository:** https://github.com/giangavangtg-ctrl/DTC245230011
 
 ---
 
@@ -90,7 +91,7 @@ TechViet Store là website quảng bá sản phẩm công nghệ (laptop, điệ
 |---|---|---|
 | WordPress | `wordpress:6.7.2-apache` | CMS, giao diện, quản trị nội dung |
 | MySQL | `mysql:8.0.40` | Cơ sở dữ liệu WordPress |
-| phpMyAdmin | `phpmyadmin:5.2.1-apache` | Quản trị DB (loopback) |
+| phpMyAdmin | `phpmyadmin:5.2.2-apache` | Quản trị DB (loopback) |
 | Nginx | `nginx:1.27-alpine` | Reverse proxy, TLS, security headers |
 | Prometheus | `prom/prometheus:v2.54.1` | Thu thập metrics |
 | Grafana | `grafana/grafana:11.2.2` | Dashboard, datasource Prometheus + Loki |
@@ -109,7 +110,7 @@ TechViet Store là website quảng bá sản phẩm công nghệ (laptop, điệ
 
 ```
 De3-WordPress/
-├── compose.yaml                    # Docker Compose (12 service, gồm wpcli profile tools + 5 volume + 3 network)
+├── compose.yaml                    # Docker Compose (12 service, gồm wpcli profile tools + 6 volume + 3 network)
 ├── .env                            # Biến môi trường thật — KHÔNG commit
 ├── .env.example                    # Mẫu biến môi trường
 ├── .gitignore                      # Bỏ qua .env, SSL key/cert, log, data
@@ -119,7 +120,7 @@ De3-WordPress/
 │   └── screenshots/                # Ảnh minh chứng chụp từ hệ thống thật
 ├── nginx/
 │   ├── conf.d/default.conf         # Reverse proxy HTTP/HTTPS + security headers
-│   └── ssl/                        # Chứng chỉ self-signed (bị .gitignore)
+│   └── ssl/                        # Chứng chỉ self-signed (bị .gitignore, tạo bằng tools/gen-selfsigned.sh)
 ├── prometheus/
 │   └── prometheus.yml              # 4 scrape job: prometheus, docker, mysql, nginx
 ├── grafana/
@@ -133,6 +134,7 @@ De3-WordPress/
 ├── telegraf/
 │   └── telegraf.conf
 ├── tools/
+│   ├── gen-selfsigned.sh           # Tạo chứng chỉ self-signed (SAN localhost)
 │   └── seed-techviet.php           # Seed nội dung mẫu bằng WP-CLI
 └── wordpress/
     └── wp-content/
@@ -182,6 +184,21 @@ Các biến chính:
 - Chứng chỉ trong `nginx/ssl/` cũng bị `.gitignore` (chứa private key).
 - Không đưa mật khẩu vào README, ảnh chụp, commit message hay log.
 
+**Tạo chứng chỉ HTTPS (bắt buộc sau khi clone):**
+
+`nginx/ssl/` bị `.gitignore` nên repo không chứa private key. Trước lần chạy đầu tiên, tạo chứng chỉ self-signed có SAN cho `localhost`/`127.0.0.1`:
+
+```bash
+bash tools/gen-selfsigned.sh
+# Tạo lại khi cần: FORCE=1 bash tools/gen-selfsigned.sh
+```
+
+Nếu đã tạo lại chứng chỉ khi stack đang chạy, restart Nginx để nạp cert mới:
+
+```bash
+docker compose restart nginx
+```
+
 Kiểm tra nhanh:
 
 ```bash
@@ -193,16 +210,26 @@ git check-ignore -v .env nginx/ssl/selfsigned.key
 ## 8. Khởi chạy
 
 ```bash
-# 1. Kiểm tra cú pháp và biến môi trường
+# 0. Clone mã nguồn (bỏ qua nếu đã có thư mục dự án)
+git clone https://github.com/giangavangtg-ctrl/DTC245230011.git
+cd DTC245230011
+
+# 1. Tạo .env từ mẫu và sửa mật khẩu (xem mục 7)
+cp .env.example .env
+
+# 2. Tạo chứng chỉ self-signed cho HTTPS (bắt buộc lần đầu)
+bash tools/gen-selfsigned.sh
+
+# 3. Kiểm tra cú pháp và biến môi trường
 docker compose config --quiet
 
-# 2. Khởi động toàn bộ stack
+# 4. Khởi động toàn bộ stack
 docker compose up -d
 
-# 3. Theo dõi trạng thái
+# 5. Theo dõi trạng thái
 docker compose ps
 
-# 4. Xem log khi cần
+# 6. Xem log khi cần
 docker compose logs -f nginx wordpress db
 ```
 
@@ -349,7 +376,7 @@ CPT `san_pham` và taxonomy `danh_muc_sp` đều bật `show_in_rest`, nên có 
 - `proxy_hide_header X-Powered-By` và `X-Frame-Options` trùng từ WordPress.
 - `resolver 127.0.0.11` để Nginx resolve tên service Docker lúc runtime.
 - `client_max_body_size 128M`, timeout proxy phù hợp WordPress.
-- `/nginx_status` chỉ cho phép dải `172.16.0.0/12` và `127.0.0.1` — dùng cho exporter nội bộ.
+- `/nginx_status` được phục vụ trên **server nội bộ cổng 8080** (không publish ra host), chỉ cho phép dải `172.16.0.0/12` — dùng cho `nginx-prometheus-exporter`. Truy cập qua `http://localhost:8081/nginx_status` sẽ không còn metrics.
 - Chặn truy cập file ẩn (`/.env`, `/.git`).
 
 ### 12.2. Security headers
@@ -462,7 +489,7 @@ Dashboard dùng UID datasource cố định (`PBFA97CFB590B2093` cho Prometheus,
   - `container` = tên container (ví dụ `de3_wordpress`)
   - `service` = tên service Compose (ví dụ `nginx`, `wordpress`, `db`)
   - `service_name`, `image`
-- Loki lưu log tại volume `loki_data`; Promtail đọc vị trí tại `/tmp/positions.yaml`.
+- Loki lưu log tại volume `loki_data`; Promtail lưu vị trí đọc tại `/var/lib/promtail/positions.yaml` trong volume `promtail_positions` (giữ qua restart, tránh gửi lại log cũ).
 - Loki chỉ bind `127.0.0.1:3100`.
 
 ### 15.1. Kiểm tra labels
