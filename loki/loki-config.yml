@@ -39,6 +39,8 @@ limits_config:
   max_streams_per_user: 10000
   reject_old_samples: true
   reject_old_samples_max_age: 168h    # 7 ngày
+  # Compactor chỉ xoá log cũ hơn 7 ngày (khớp với max_age ở trên)
+  retention_period: 168h
 
 storage_config:
   tsdb_shipper:

@@ -18,7 +18,9 @@ server:
   log_level: warn
 
 positions:
-  filename: /tmp/positions.yaml
+  # Volume promtail_positions (xem compose.yaml) — giữ vị trí đọc log
+  # qua các lần restart, tránh gửi lại log cũ về Loki.
+  filename: /var/lib/promtail/positions.yaml
 
 clients:
   - url: http://loki:3100/loki/api/v1/push
@@ -59,12 +61,6 @@ scrape_configs:
       #   action: keep
 
     pipeline_stages:
-      # Phát hiện và parse JSON log (Docker mặc định ghi JSON)
+      # Parse JSON log của Docker; stage này cũng lấy timestamp từ trường
+      # "time" trong log nên không cần thêm stage timestamp riêng.
       - docker: {}
-
-      # Thêm timestamp từ log nếu có
-      - timestamp:
-          source: time
-          format: RFC3339Nano
-          fallback_formats:
-            - "2006-01-02T15:04:05Z07:00"

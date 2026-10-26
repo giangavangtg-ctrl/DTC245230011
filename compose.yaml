@@ -22,6 +22,9 @@ volumes:
     driver: local
   loki_data:
     driver: local
+  # Lưu vị trí đọc log của Promtail để không đọc lại log cũ sau khi restart
+  promtail_positions:
+    driver: local
 
 # ==========================
 # NETWORKS
@@ -192,7 +195,7 @@ services:
   # Chỉ để quản trị, không để public
   # -----------------------------------
   phpmyadmin:
-    image: phpmyadmin:5.2.1-apache
+    image: phpmyadmin:5.2.2-apache
     container_name: de3_phpmyadmin
     restart: unless-stopped
 
@@ -246,6 +249,11 @@ services:
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
       - ./nginx/ssl:/etc/nginx/ssl:ro
+
+    # Cổng 8080 chỉ dùng nội bộ cho nginx-prometheus-exporter (stub_status),
+    # KHÔNG publish ra host.
+    expose:
+      - "8080"
 
     ports:
       - "127.0.0.1:8081:80"
@@ -387,6 +395,9 @@ services:
 
     volumes:
       - ./promtail/promtail-config.yml:/etc/promtail/promtail-config.yml:ro
+      # Lưu vị trí đọc log để restart không đọc lại log cũ (tránh lỗi
+      # "entry too far behind" từ Loki)
+      - promtail_positions:/var/lib/promtail
       # Mount Docker socket để đọc log container
       # Trên Docker Desktop for Windows, socket được expose tại đường dẫn này
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -497,7 +508,7 @@ services:
         condition: service_healthy
 
     command:
-      - "--nginx.scrape-uri=http://nginx:80/nginx_status"
+      - "--nginx.scrape-uri=http://nginx:8080/nginx_status"
 
     # Image distroless không có wget/curl nên không đặt healthcheck tại đây.
     # Trạng thái thật được xác minh qua Prometheus target "nginx" (UP)

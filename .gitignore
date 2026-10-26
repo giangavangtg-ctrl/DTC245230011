@@ -7,6 +7,8 @@
 nginx/ssl/*.pem
 nginx/ssl/*.key
 nginx/ssl/*.crt
+# File cấu hình tạm do tools/gen-selfsigned.sh sinh ra
+nginx/ssl/*.cnf
 
 # Thư mục dữ liệu nếu mount local (không dùng named volumes)
 data/
